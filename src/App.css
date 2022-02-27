@@ -7,15 +7,14 @@ html {
 }
 
 .header {
-  /* background-color: green; */
+
 }
 
 .aside {
-  /* background-color: red */
+
 }
 
 .main {
-  /* background-color: blue; */
   display: grid;
   grid-template-columns: repeat(auto-fill, 250px);
   grid-gap: .5em;
@@ -23,16 +22,12 @@ html {
 
 .Card {
   border: 1px solid black;
-  /* width: 300px; */
   height: 400px;
-  /* margin: 0 auto; */
 }
 
 .Card:hover {
   border: 1px solid black;
-  /* width: 300px; */
   height: 400px;
-  /* margin: 0 auto; */
   cursor: pointer;
 }
 
@@ -41,11 +36,9 @@ html {
 }
 
 .card-info {
-  /* margin: 0 auto; */
   margin: 0;
   height: 50%;
   padding: 1em;
-  /* background-color: purple; */
 }
 
 ul {
@@ -72,15 +65,11 @@ ul {
   justify-content: center;
   grid-gap: 10em;
   grid-template-columns: repeat(auto-fit, 600px);
-  /* justify-content: space-between; */
-  background-color: teal;
 }
 
 picture {
-  border: 1px solid green;
   height: 400px;
   width: 600px;
-  background-color: blue;
 }
 
 .header-detail {
@@ -89,8 +78,6 @@ picture {
 }
 
 .section-detail {
-  border: 1px solid blueviolet;
   height: 400px;
   width: 600px;
-  background-color: fuchsia
 }

@@ -9,20 +9,10 @@ import {
   } from "react-router-dom";
 
 function Card(props) {
-    let { id } = useParams();
-
-    function clickCard() {
-        console.log("just got clicked!")
-    console.log("PROPS: ", props)
-    // id = props.country
-    console.log("ID: ", id)
-
-
-    }
-
+    
     return (
             <Link to={`/${props.country}`}>
-                <article onClick={clickCard} className="Card">
+                <article className="Card">
                     <header className="flag">
                         <img className="flag-img" src={props.flag} alt="country's flag" />
                     </header>
