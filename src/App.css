@@ -65,3 +65,32 @@ ul {
 .hidden {
   display: none;
 }
+
+.main-detail {
+  margin: 0 auto;
+  display: grid;
+  justify-content: center;
+  grid-gap: 10em;
+  grid-template-columns: repeat(auto-fit, 600px);
+  /* justify-content: space-between; */
+  background-color: teal;
+}
+
+picture {
+  border: 1px solid green;
+  height: 400px;
+  width: 600px;
+  background-color: blue;
+}
+
+.header-detail {
+  display: flex;
+  justify-content: space-between;
+}
+
+.section-detail {
+  border: 1px solid blueviolet;
+  height: 400px;
+  width: 600px;
+  background-color: fuchsia
+}
