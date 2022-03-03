@@ -39,31 +39,31 @@ let { id } = useParams();
     return(
         <div className="Detail">
             <aside>
-                Back
+                <Link className="link" to="/">Back</Link>
             </aside>
             <main className="main-detail">
-                <picture>
-                    <img className="flag-img" src={currentCountry[0].flag} alt="country flag"/>
-                </picture>
+                {/* <picture> */}
+                    <img className="detail-flag-img" src={currentCountry[0].flag} alt="country flag"/>
+                {/* </picture> */}
                 <section className="section-detail">
-                    <h2>{currentCountry[0].name}</h2>
+                    <h2 className="section-detail-text">{currentCountry[0].name}</h2>
                     <aside>
                         <ul>
-                            <li><b>Native Name:</b> {currentCountry[0].nativeName}</li>
-                            <li><b>Population: </b> {currentCountry[0].population}</li>
-                            <li><b>Region: </b> {currentCountry[0].region}</li>
-                            <li><b>Sub Region: </b> {currentCountry[0].subregion}</li>
-                            <li><b>Capital: </b> {currentCountry[0].capital}</li>
+                            <li className="section-detail-text"><b>Native Name:</b> {currentCountry[0].nativeName}</li>
+                            <li className="section-detail-text"><b>Population: </b> {currentCountry[0].population}</li>
+                            <li className="section-detail-text"><b>Region: </b> {currentCountry[0].region}</li>
+                            <li className="section-detail-text"><b>Sub Region: </b> {currentCountry[0].subregion}</li>
+                            <li className="section-detail-text"><b>Capital: </b> {currentCountry[0].capital}</li>
                         </ul>
                         <ul>
-                            <li><b>Top Level Domain: </b> {currentCountry[0].topLevelDomain[0]}</li>
-                            <li><b>Currencies: </b> {currencies}</li>
-                            <li><b>Languages: </b> {languages.join(", ")}</li>
+                            <li className="section-detail-text"><b>Top Level Domain: </b> {currentCountry[0].topLevelDomain[0]}</li>
+                            <li className="section-detail-text"><b>Currencies: </b> {currencies}</li>
+                            <li className="section-detail-text"><b>Languages: </b> {languages.join(", ")}</li>
                         </ul>
                     </aside>
                     <aside className="border-aside">
                         <h3 className="borders-h3">Border Countries: </h3>
-                        {borderCountries}
+                        {borderCountries ? borderCountries : "None"}
                     </aside>
                 </section>
             </main>
