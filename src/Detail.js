@@ -14,7 +14,11 @@ let { id } = useParams();
     currentCountry = props.countryData.filter(country => id === country.name);
     console.log("CURRENT COUNTRY: ", currentCountry)
     let topLevelDomain = currentCountry[0].topLevelDomain.map(tld => tld)
-    let currencies = currentCountry[0].currencies.map(currency => currency.name)
+    // let currencies = currentCountry[0].currencies.map(currency => currency.name)
+    let currencies
+    if (currentCountry[0].currencies) {
+        currencies = currentCountry[0].currencies.map(currency => currency.name)
+    }
     let languages = currentCountry[0].languages.map(language => language.name)
     let countriesWithBorders = props.countryData.filter(country => country.borders)
     console.log("COUNTRIES WITH BORDERS: ", countriesWithBorders)
@@ -53,11 +57,11 @@ let { id } = useParams();
                             <li className="section-detail-text"><b>Population: </b> {currentCountry[0].population}</li>
                             <li className="section-detail-text"><b>Region: </b> {currentCountry[0].region}</li>
                             <li className="section-detail-text"><b>Sub Region: </b> {currentCountry[0].subregion}</li>
-                            <li className="section-detail-text"><b>Capital: </b> {currentCountry[0].capital}</li>
+                            <li className="section-detail-text"><b>Capital: </b> {currentCountry[0].capital ? currentCountry[0].capital : "N/A"}</li>
                         </ul>
                         <ul>
                             <li className="section-detail-text"><b>Top Level Domain: </b> {currentCountry[0].topLevelDomain[0]}</li>
-                            <li className="section-detail-text"><b>Currencies: </b> {currencies}</li>
+                            <li className="section-detail-text"><b>Currencies: </b> {currencies ? currencies : "N/A"}</li>
                             <li className="section-detail-text"><b>Languages: </b> {languages.join(", ")}</li>
                         </ul>
                     </aside>

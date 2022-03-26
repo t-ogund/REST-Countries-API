@@ -21,7 +21,7 @@ function Card(props) {
                         <ul>
                             <li className={props.mode === true ? `li-dark` : null}><span className="card-bold">Population:</span> {props.population}</li>
                             <li className={props.mode === true ? `li-dark` : null}><span className="card-bold">Region:</span> {props.region}</li>
-                            <li className={props.mode === true ? `li-dark` : null}><span className="card-bold">Capital:</span> {props.capital}</li>
+                            <li className={props.mode === true ? `li-dark` : null}><span className="card-bold">Capital:</span> {props.capital ? props.capital : "N/A"}</li>
                         </ul>
                     </article>
                 </article>
