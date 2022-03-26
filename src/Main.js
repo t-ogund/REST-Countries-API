@@ -22,8 +22,6 @@ function Main(props) {
     let cards = props.countryData.map(card => {
         return <Card flag={card.flag} country={card.name} population={card.population} region={card.region} capital={card.capital} allCards={card} mode={props.mode} />
       })
-      console.log("NEW CARDS: ", cards[0])
-
 
       function handleChange(e) {
         setSearchQuery(
@@ -31,20 +29,19 @@ function Main(props) {
           console.log("Search Query: ", searchQuery),
           setFilteredCards(
             filteredCards = cards.filter(card => {
-              let noMatch = []
               if (card.props.country.toLowerCase().includes(searchQuery.toLowerCase())) {
                 console.log('testing first if block', card.props.country.toLowerCase().includes(searchQuery.toLowerCase()))
                return <Card flag={card.flag} country={card.name} population={card.population} region={card.region} capital={card.capital} />
               } 
             }),
           ),
-          setFilteredSpecifiedRegion(
-            filteredSpecifiedRegion = specifiedRegion.filter(card => {
-              if (card.props.country.toLowerCase().includes(searchQuery)) {
-                return <Card flag={card.flag} country={card.name} population={card.population} region={card.region} capital={card.capital} />
-              }
-            })
-          )
+            setFilteredSpecifiedRegion(
+              filteredSpecifiedRegion = specifiedRegion.filter(card => {
+                if (card.props.country.toLowerCase().includes(searchQuery)) {
+                  return <Card flag={card.flag} country={card.name} population={card.population} region={card.region} capital={card.capital} />
+                }
+              })
+            )
         )
       }
     
@@ -62,6 +59,7 @@ function Main(props) {
       }
       console.log('filteredCards more than 0', filteredCards.props)
       console.log('filteredSpecifiedRegion', filteredSpecifiedRegion.props)
+
     if (filteredCards.length === 0) {
       filteredCards = <NotFound unsuccessfulQuery={searchQuery} region={specifiedRegion} />
       console.log('filteredCards NotFound', filteredCards)
@@ -70,8 +68,22 @@ function Main(props) {
     if (filteredSpecifiedRegion.length === 0) {
       filteredSpecifiedRegion = <NotFound unsuccessfulQuery={searchQuery} region={selectedRegion} />
       console.log('filteredSpecifiedRegion NotFound', filteredSpecifiedRegion)
-    }
+    } 
     console.log('specifiedRegion', specifiedRegion)
+
+    if (searchQuery) {
+      filteredSpecifiedRegion = []
+      for (let i = 0; i < specifiedRegion.length; i++) {
+        if (specifiedRegion[i].props.country.toLowerCase().includes(searchQuery)) {
+          filteredSpecifiedRegion.push(<Card flag={specifiedRegion[i].props.flag} country={specifiedRegion[i].props.country} population={specifiedRegion[i].props.population} region={specifiedRegion[i].props.region} capital={specifiedRegion[i].props.capital} />)
+        }   
+      }
+      
+      if (filteredSpecifiedRegion.length === 0) {
+        filteredSpecifiedRegion = <NotFound unsuccessfulQuery={searchQuery} region={specifiedRegion} />
+      }
+
+    }
     return(
         <React.Fragment>
             <aside className="aside">
